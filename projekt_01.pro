@@ -3,6 +3,9 @@ QT       += core gui
 #QSerialPort posłuży nam do obsługi portu w komunikacji z płytką Arduino
 QT       += serialport
 
+#QCharts posłuży nam do obsługi wykresów
+QT      += charts
+
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 CONFIG += c++11
@@ -21,11 +24,13 @@ DEFINES += QT_DEPRECATED_WARNINGS
 SOURCES += \
     connectdialog.cpp \
     main.cpp \
-    mainwindow.cpp
+    mainwindow.cpp \
+    plant.cpp
 
 HEADERS += \
     connectdialog.h \
-    mainwindow.h
+    mainwindow.h \
+    plant.h
 
 FORMS += \
     connectdialog.ui \
@@ -35,3 +40,6 @@ FORMS += \
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
+
+RESOURCES += \
+    resource_images.qrc

@@ -6,6 +6,7 @@
 #include "connectdialog.h"
 
 
+
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }
 QT_END_NAMESPACE
@@ -15,6 +16,7 @@ class MainWindow : public QMainWindow
     Q_OBJECT
 
 public:
+    ConnectDialog *secondConnectionWindow;
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
@@ -24,16 +26,17 @@ private slots:
     void on_exit_button_pressed();
 
     // Test button
-    void myCustomSlot();
 
-    int on_connectButton_clicked();
+    void on_connectButton_clicked();
 
-    void get_device_name();
 
+
+    void on_actionConnect_triggered();
+
+    void on_test_button_clicked();
 
 private:
     Ui::MainWindow *ui;
     // Drugie okno do obsługi komunikacji
-    ConnectDialog *secondConnectionWindow;
 };
 #endif // MAINWINDOW_H

@@ -6,172 +6,186 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>770</width>
-    <height>555</height>
+    <width>839</width>
+    <height>601</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QPushButton" name="exit_button">
-    <property name="geometry">
-     <rect>
-      <x>681</x>
-      <y>9</y>
-      <width>80</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Exit</string>
-    </property>
-   </widget>
-   <widget class="QGroupBox" name="groupBox">
-    <property name="geometry">
-     <rect>
-      <x>9</x>
-      <y>40</y>
-      <width>752</width>
-      <height>462</height>
-     </rect>
-    </property>
-    <property name="title">
-     <string>Status</string>
-    </property>
-    <widget class="QComboBox" name="comboBox">
-     <property name="geometry">
-      <rect>
-       <x>20</x>
-       <y>30</y>
-       <width>221</width>
-       <height>41</height>
-      </rect>
-     </property>
-    </widget>
-    <widget class="QLabel" name="temp_png">
-     <property name="enabled">
-      <bool>true</bool>
-     </property>
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>150</y>
-       <width>50</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../Desktop/WDS/temperatura.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label_2">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>260</y>
-       <width>50</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../Desktop/WDS/wilgotnosc.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QLabel" name="label">
-     <property name="geometry">
-      <rect>
-       <x>450</x>
-       <y>370</y>
-       <width>50</width>
-       <height>50</height>
-      </rect>
-     </property>
-     <property name="text">
-      <string/>
-     </property>
-     <property name="pixmap">
-      <pixmap>../Desktop/WDS/naswietlenie.png</pixmap>
-     </property>
-     <property name="scaledContents">
-      <bool>true</bool>
-     </property>
-    </widget>
-    <widget class="QTextEdit" name="main_text">
-     <property name="geometry">
-      <rect>
-       <x>130</x>
-       <y>140</y>
-       <width>251</width>
-       <height>111</height>
-      </rect>
-     </property>
-    </widget>
-   </widget>
-   <widget class="QPushButton" name="test_button">
-    <property name="geometry">
-     <rect>
-      <x>580</x>
-      <y>10</y>
-      <width>89</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Test</string>
-    </property>
-   </widget>
-   <widget class="QPushButton" name="connectButton">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>89</width>
-      <height>25</height>
-     </rect>
-    </property>
-    <property name="text">
-     <string>Connect</string>
-    </property>
-   </widget>
-  </widget>
-  <widget class="QMenuBar" name="menubar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>770</width>
-     <height>22</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuOverview">
-    <property name="title">
-     <string>Overview</string>
-    </property>
-    <addaction name="actionConnect"/>
-   </widget>
-   <widget class="QMenu" name="menuCharts">
-    <property name="title">
-     <string>Charts</string>
-    </property>
-   </widget>
-   <addaction name="menuOverview"/>
-   <addaction name="menuCharts"/>
+   <layout class="QGridLayout" name="gridLayout_2">
+    <item row="0" column="0">
+     <widget class="QTabWidget" name="tabWidget">
+      <property name="currentIndex">
+       <number>0</number>
+      </property>
+      <property name="tabsClosable">
+       <bool>false</bool>
+      </property>
+      <property name="movable">
+       <bool>false</bool>
+      </property>
+      <widget class="QWidget" name="tab">
+       <attribute name="title">
+        <string>Overwiew</string>
+       </attribute>
+       <layout class="QGridLayout" name="gridLayout">
+        <item row="0" column="0">
+         <widget class="QPushButton" name="connectButton">
+          <property name="text">
+           <string>Connect</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="1">
+         <widget class="QPushButton" name="test_button">
+          <property name="text">
+           <string>Test</string>
+          </property>
+         </widget>
+        </item>
+        <item row="0" column="2">
+         <widget class="QPushButton" name="exit_button">
+          <property name="text">
+           <string>Exit</string>
+          </property>
+         </widget>
+        </item>
+        <item row="1" column="0" colspan="3">
+         <widget class="QGroupBox" name="groupBox">
+          <property name="title">
+           <string>Overwiew</string>
+          </property>
+          <widget class="QComboBox" name="comboBox">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>30</y>
+             <width>221</width>
+             <height>41</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLabel" name="temp_png">
+           <property name="enabled">
+            <bool>true</bool>
+           </property>
+           <property name="geometry">
+            <rect>
+             <x>480</x>
+             <y>120</y>
+             <width>50</width>
+             <height>50</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../Desktop/WDS/temperatura.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label_2">
+           <property name="geometry">
+            <rect>
+             <x>480</x>
+             <y>230</y>
+             <width>50</width>
+             <height>50</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../Desktop/WDS/wilgotnosc.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QLabel" name="label">
+           <property name="geometry">
+            <rect>
+             <x>480</x>
+             <y>340</y>
+             <width>50</width>
+             <height>50</height>
+            </rect>
+           </property>
+           <property name="text">
+            <string/>
+           </property>
+           <property name="pixmap">
+            <pixmap>../Desktop/WDS/naswietlenie.png</pixmap>
+           </property>
+           <property name="scaledContents">
+            <bool>true</bool>
+           </property>
+          </widget>
+          <widget class="QTextEdit" name="main_text">
+           <property name="geometry">
+            <rect>
+             <x>20</x>
+             <y>130</y>
+             <width>431</width>
+             <height>281</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLCDNumber" name="lcdNumber">
+           <property name="geometry">
+            <rect>
+             <x>570</x>
+             <y>130</y>
+             <width>121</width>
+             <height>31</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLCDNumber" name="lcdNumber_2">
+           <property name="geometry">
+            <rect>
+             <x>570</x>
+             <y>230</y>
+             <width>121</width>
+             <height>31</height>
+            </rect>
+           </property>
+          </widget>
+          <widget class="QLCDNumber" name="lcdNumber_3">
+           <property name="geometry">
+            <rect>
+             <x>570</x>
+             <y>340</y>
+             <width>121</width>
+             <height>31</height>
+            </rect>
+           </property>
+          </widget>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+      <widget class="QWidget" name="tab_2">
+       <attribute name="title">
+        <string>Charts</string>
+       </attribute>
+      </widget>
+     </widget>
+    </item>
+   </layout>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
   <action name="actionConnect">
+   <property name="icon">
+    <iconset>
+     <normaloff>img/connect.png</normaloff>img/connect.png</iconset>
+   </property>
    <property name="text">
     <string>Connect</string>
    </property>

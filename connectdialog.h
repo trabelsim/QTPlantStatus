@@ -2,9 +2,9 @@
 #define CONNECTDIALOG_H
 
 #include <QDialog>
-
 // Obsługa urządzenia wykrywanego przez scan
 #include <QSerialPort>
+
 
 namespace Ui {
 class ConnectDialog;
@@ -19,11 +19,13 @@ public:
     ~ConnectDialog();
     QSerialPort *device;
     QString device_name;
-    bool deviceSetUp();
+    bool deviceSetUp = false;
+    QString give_device_name();
+    void addToLogs(QString message);
 
+    QString readFromPort();
 private slots:
     void on_scanButton_clicked();
-    void addToLogs(QString message);
 
     void on_connectButton_clicked();
 

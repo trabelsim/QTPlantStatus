@@ -1,6 +1,5 @@
 #include "connectdialog.h"
 #include "ui_connectdialog.h"
-
 #include <QDebug>
 // Lista która przekazuje znalezione urządzenia
 #include <QList>
@@ -9,6 +8,7 @@
 
 // posiada niezbedną funkcje currentDateTime do obsługi logów
 #include <QDateTime>
+
 
 
 ConnectDialog::ConnectDialog(QWidget *parent) :
@@ -24,13 +24,11 @@ ConnectDialog::ConnectDialog(QWidget *parent) :
 
 ConnectDialog::~ConnectDialog()
 {
+
     delete ui;
 }
 
-bool ConnectDialog::deviceSetUp()
-{
 
-}
 
 
 void ConnectDialog::on_scanButton_clicked()
@@ -49,6 +47,7 @@ void ConnectDialog::on_scanButton_clicked()
         for (int i=0; i <devices.count(); i++){
             this->addToLogs("Device found : " + devices.at(i).portName() + devices.at(i).description());
             ui->comboBoxDevices->addItem(devices.at(i).portName() + " " + devices.at(i).description());
+            //            append(devices.at(i).portName() + " " + devices.at(i).description());
         }
 
     }else{
@@ -90,9 +89,15 @@ void ConnectDialog::on_connectButton_clicked()
             this->device->setFlowControl(QSerialPort::NoFlowControl);
 
             this->addToLogs("Port is opened");
+            // przekazuj za pomocą funkcji bool że wszystko jest ustawione
+            deviceSetUp = true;
+            give_device_name();
+            readFromPort();
 
         }else{
             this->addToLogs("Could not open port");
+            // przekazuj za pomocą funkcji bool że wszystko jest ustawione
+            deviceSetUp = false;
         }
     }else{
         this->addToLogs("Port is already opened!");
@@ -111,5 +116,22 @@ void ConnectDialog::on_disconnectButton_clicked()
     }
 }
 
+QString ConnectDialog::give_device_name(){
+    if(deviceSetUp){
+        QString portName = ui->comboBoxDevices->currentText().split(" ").first();
+        return portName;
+    }else{
+         return 0;
+    }
+}
 
+QString ConnectDialog::readFromPort(){
+    while(this->device->canReadLine()){
+        QString line = this->device->readLine();
+        QString terminator = "\n\r";
+        int pos = line.lastIndexOf(terminator);
+        line = line.left(pos);
+        return line;
+    }
+}
 

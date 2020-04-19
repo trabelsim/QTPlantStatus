@@ -3,7 +3,10 @@
 
 #include "connectdialog.h" // connectdialog zawiera okno do obsługi komunikacji z kontrolerem
 #include <QSerialPortInfo>
+#include <QSerialPort>
+#include <QMessageBox>
 
+#include <QDate>
 
 #include <QDebug>
 
@@ -20,7 +23,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
 void MainWindow::on_exit_button_clicked()
 {
     qDebug() << "Exit button has been clicked \n Exiting the application";
@@ -33,11 +35,7 @@ void MainWindow::on_exit_button_pressed()
 }
 
 
-void MainWindow::myCustomSlot(){
-    qDebug() << "Test button pushed";
-}
-
-int MainWindow::on_connectButton_clicked()
+void MainWindow::on_connectButton_clicked()
 {
     /*
      * W przypadku tworzenia drugiego okna w taki sposób, gdy już okno zostanie otwarte,
@@ -55,23 +53,13 @@ int MainWindow::on_connectButton_clicked()
 
     secondConnectionWindow = new ConnectDialog(this);
     secondConnectionWindow->show();
-    return 1;
+    if(secondConnectionWindow){
+        qInfo() << "Otwarto nowe okno";
+            ui->main_text->append("New connection in progress..");
+    }
 }
 
-void MainWindow::get_device_name()
-{
-    if(on_connectButton_clicked()){
-        qInfo() << "Otwarto nowe okno";
-        if(secondConnectionWindow){
-            ui->main_text->append("New connection in progress..");
-            if(secondConnectionWindow->device->open(QSerialPort::ReadOnly) && secondConnectionWindow->device_name != ""){
-                ui->main_text->append(secondConnectionWindow->device_name);
-                qDebug() << " hola hola " << secondConnectionWindow->device_name;
-            }
-        }
-    }
-    return;
-}
+
 
 //void ConnectDialog::readFromPort()
 //{
@@ -84,3 +72,40 @@ void MainWindow::get_device_name()
 //          this->addToLogs(line.left(pos));
 //    }
 //}
+
+//if(secondConnectionWindow){
+//        ui->main_text->append("New connection in progress..");
+//        if(secondConnectionWindow->deviceSetUp == true){
+//            ui->main_text->append("Connected");
+//        }else if(secondConnectionWindow->deviceSetUp == false){
+//            ui->main_text->append("Not Connected");
+//        }
+
+//}
+
+void MainWindow::on_actionConnect_triggered()
+{
+    QMessageBox::information(this,"title","New Information");
+}
+
+
+void MainWindow::on_test_button_clicked()
+{
+    secondConnectionWindow->device->setPortName(secondConnectionWindow->give_device_name());
+    secondConnectionWindow->device->open(QSerialPort::ReadOnly);
+    secondConnectionWindow->device->setBaudRate(QSerialPort::Baud115200);
+    secondConnectionWindow->device->setDataBits(QSerialPort::Data8);
+    secondConnectionWindow->device->setParity(QSerialPort::NoParity);
+    secondConnectionWindow->device->setStopBits(QSerialPort::OneStop);
+    secondConnectionWindow->device->setFlowControl(QSerialPort::NoFlowControl);
+    connect(secondConnectionWindow->device, SIGNAL(readyRead()) , this, SLOT(secondConnectionWindow->readFromPort()));
+
+    if(secondConnectionWindow->device->canReadLine()){
+        QString data = secondConnectionWindow->readFromPort();
+        QString currentDateTime = QDateTime::currentDateTime().toString("yyyy.MM.dd hh:mm:ss");
+        ui->main_text->append(currentDateTime + "\t" + data);
+    }else{
+        ui->main_text->append("Could not read data.");
+        return;
+    }
+}
