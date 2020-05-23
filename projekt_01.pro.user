@@ -1,6 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
+<<<<<<< HEAD
 <!-- Written by QtCreator 4.11.2, 2020-05-22T17:50:52. -->
+=======
+<!-- Written by QtCreator 4.11.2, 2020-04-19T18:09:50. -->
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -285,9 +289,14 @@
     </valuelist>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes"/>
+<<<<<<< HEAD
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.DisplayName">projekt_012</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/maroine/Desktop/19hoursago/QTPlantStatus-d8d02d61a821b99374eb60dd7f7f6ef5a9d0f1d9/projekt_01.pro</value>
     <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/maroine/Desktop/19hoursago/QTPlantStatus-d8d02d61a821b99374eb60dd7f7f6ef5a9d0f1d9/projekt_01.pro</value>
+=======
+    <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:/home/maroine/projekt_01/projekt_01.pro</value>
+    <value type="QString" key="ProjectExplorer.RunConfiguration.BuildKey">/home/maroine/projekt_01/projekt_01.pro</value>
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484
     <value type="QString" key="RunConfiguration.Arguments"></value>
     <value type="bool" key="RunConfiguration.Arguments.multi">false</value>
     <value type="QString" key="RunConfiguration.OverrideDebuggerStartup"></value>

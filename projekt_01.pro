@@ -3,10 +3,17 @@ QT       += core gui
 #QSerialPort posłuży nam do obsługi portu w komunikacji z płytką Arduino
 QT       += serialport
 
+<<<<<<< HEAD
 #printsupport do obsługi wykresów
 QT      += charts
 #printsupport do obsługi wykresów qcustomplot (3-rd part add-in)
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets printsupport
+=======
+#QCharts posłuży nam do obsługi wykresów
+QT      += charts
+
+greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484
 
 CONFIG += c++11
 
@@ -25,6 +32,7 @@ SOURCES += \
     connectdialog.cpp \
     main.cpp \
     mainwindow.cpp \
+<<<<<<< HEAD
     plant.cpp \
     qcustomplot.cpp
 
@@ -36,6 +44,14 @@ HEADERS += \
     qcustomplot.h
 
 HEADERS += src/*.png
+=======
+    plant.cpp
+
+HEADERS += \
+    connectdialog.h \
+    mainwindow.h \
+    plant.h
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484
 
 FORMS += \
     connectdialog.ui \
@@ -46,5 +62,10 @@ qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
+<<<<<<< HEAD
 DISTFILES += \
     README.md
+=======
+RESOURCES += \
+    resource_images.qrc
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484

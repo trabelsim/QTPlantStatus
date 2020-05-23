@@ -2,12 +2,18 @@
 #define CONNECTDIALOG_H
 
 #include <QDialog>
+<<<<<<< HEAD
 
 // Obsługa urządzenia wykrywanego przez scan
 #include <QSerialPort>
 
 // zachowuje nazwe urządzenia do dalszej przeróbki
 //#include "device.h"
+=======
+// Obsługa urządzenia wykrywanego przez scan
+#include <QSerialPort>
+
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484
 
 namespace Ui {
 class ConnectDialog;
@@ -22,6 +28,7 @@ public:
     ~ConnectDialog();
     QSerialPort *device;
     QString device_name;
+<<<<<<< HEAD
     bool valConn;
 
     struct device_x {
@@ -32,11 +39,23 @@ public:
 private slots:
     void on_scanButton_clicked();
     void addToLogs(QString message);
+=======
+    bool deviceSetUp = false;
+    QString give_device_name();
+    void addToLogs(QString message);
+
+    QString readFromPort();
+private slots:
+    void on_scanButton_clicked();
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484
 
     void on_connectButton_clicked();
 
     void on_disconnectButton_clicked();
+<<<<<<< HEAD
     void readFromPort();
+=======
+>>>>>>> e1a18cf145c2204eaae565638cb0d50a38580484
 
 private:
     Ui::ConnectDialog *ui;
